@@ -21,7 +21,7 @@ client.on("ready", () => {
 var prefix = "-"; // تعديل مهم جدا
 
 client.on("message", message => {
-  if (message.content.startsWith(prefix + "obc")) {
+  if (message.content.startsWith(prefix + "bc")) {
     if (!message.member.hasPermission("ADMINISTRATOR")) return;
     let args = message.content
       .split(" ")
@@ -55,7 +55,7 @@ client.on("message", message => {
 //كود برودكاست للاون لاين فقط
 
 client.on("message", message => {
-  if (message.content.startsWith(prefix + "bc")) {
+  if (message.content.startsWith(prefix + "obc")) {
     if (!message.member.hasPermission("ADMINISTRATOR")) return;
     let args = message.content
       .split(" ")
