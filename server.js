@@ -28,7 +28,7 @@ client.on("message", message => {
   message.guild.members.filter(m => m.presence.status !== 'online').forEach(m => {
  m.send(`${argresult}\n ${m}`);
 })
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` :${client.user.tag} تمكن من الارسال الى`); 
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : ${client.user} تمكن من الارسال الى`); 
  message.delete(); 
 };     
 });
@@ -38,15 +38,20 @@ client.on("message", message => {
 
 
 client.on("message", message => {
-
-            if (message.content.startsWith(prefix + "bc")) {
-                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+if (message.content.startsWith(prefix + "bc")) {
+if (!message.member.hasPermission("ADMINISTRATOR"))  return;
   let args = message.content.split(" ").slice(1);
   var argresult = args.join(' '); 
   message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
  m.send(`${argresult}\n ${m}`);
 })
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
+              let embed = new Discord.RichEmbed()
+.setAuthor(message.author.username,message.author.avatarURL)
+.setColor('#5016f3')
+                        .addField("message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : تمكن ${client.user} من الارسال الى `)")
+                        .setTimestamp()
+        message.channel.send({embed:embed});///coded by : Ra3d🍁#0001
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : تمكن ${client.user} من الارسال الى `); 
  message.delete(); 
 };     
 });
@@ -72,19 +77,21 @@ if (message.content.toLowerCase() === prefix + 'inv'.toLowerCase() || message.co
 client.on("message", message => {
   
 
-if (message.content.toLowerCase().startsWith(prefix + "help".toLowerCase())) {
+client.on("message", message => {
+  if (message.content == prefix + "help") {
+    let help = new Discord.MessageEmbed()
+      .setColor("0x5016f3")
+      .setDescription(`** ${client.user} Commands**
 
-       let main_help_en = new Discord.MessageEmbed()
-.setTimestamp().setColor("RED").setAuthor(`Help Commands`, message.author.displayAvatarURL()).setFooter(`For more information about the commands use : ${prefix}help ( command )`,client.user.displayAvatarURL()).setThumbnail(client.user.displayAvatarURL())
-.setDescription(`> **${client.user.username} 's Help commands\n> Available Commands : " 9 " Command\n> Prefix : \`${prefix}\` | Language : English :flag_gb:**`)
-.addFields(
-      { name: 'BroadCast Commands', value: `\`${prefix}bc \` , \`paypal-tax\` \`credits\`, \`daily\``}, 
-      { name: 'Admins', value: `\`setprefix\` , \`setlanguage\` , \`settype\`` },
-      { name: 'Extra', value: `\`stats\` , \`invite\` , \`support\` , \`help\``})
-} 
-  })
+BoardCast
+/-/bc/
+            
+         --------------------------------------------------
 
-
+            `);
+    message.channel.send(help);
+  }
+});
 client.on("message", message => {
 
 if (message.content.toLowerCase() === prefix + 'supp'.toLowerCase() || message.content.toLowerCase() === prefix + 'support'.toLowerCase()) { 
@@ -101,6 +108,28 @@ if (message.content.toLowerCase() === prefix + 'supp'.toLowerCase() || message.c
 }
  
 });
+
+///coded by : Ra3d🍁#0001
+
+client.on('message', message => { 
+var prefix = '-'///coded by : Ra3d🍁#0001
+                                if(!message.channel.guild) return;///coded by : Ra3d🍁#0001
+                        if (message.content.startsWith(prefix + 'ping')) {
+                            if(!message.channel.guild) return;
+                            var msg = `${Date.now() - message.createdTimestamp}`
+                            var api = `${Math.round(client.ping)}`
+                            if (message.author.bot) return;///coded by : Ra3d🍁#0001
+                        let embed = new Discord.RichEmbed()
+                        .setAuthor(message.author.username,message.author.avatarURL)
+                        .setColor('#5016f3')
+                        .addField('**My Ping is:**',msg + " ms :signal_strength: ")
+                        .addField('**Discord API :**',api + " ms :signal_strength: ")
+                        .setTimestamp()
+        message.channel.send({embed:embed});///coded by : Ra3d🍁#0001
+                        }
+                    });
+///coded by : Ra3d🍁#0001
+
 
 
 client.login(process.env.token);
