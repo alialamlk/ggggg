@@ -1,4 +1,4 @@
-//coded by : Ra3d
+//coded by : Ra3d🍁#0001 - Ln,Muziky#8956
 const http = require("http");
 const express = require("express");
 const app = express();
@@ -6,7 +6,7 @@ app.get("/", (request, response) => {
   response.sendStatus(200);
 });
 
-///coded by Ra3d#9999
+//coded by : Ra3d🍁#0001 - Ln,Muziky#8956
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
@@ -14,7 +14,7 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-//coded by : Ra3d
+//coded by : Ra3d🍁#0001 - Ln,Muziky#8956
 
 
 var prefix = "-"; // تعديل مهم جدا
@@ -48,15 +48,17 @@ if (!message.member.hasPermission("ADMINISTRATOR"))  return;
               let embed = new Discord.RichEmbed()
 .setAuthor(message.author.username,message.author.avatarURL)
 .setColor('#5016f3')
-                        .addField("message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : تمكن ${client.user} من الارسال الى `)")
+                        .setDescription(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : تمكن ${client.user} من الارسال الى `)
                         .setTimestamp()
-        message.channel.send({embed:embed});///coded by : Ra3d🍁#0001
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : تمكن ${client.user} من الارسال الى `); 
+        message.channel.send({embed:embed});//coded by : Ra3d🍁#0001 - Ln,Muziky#8956
+
  message.delete(); 
 };     
 });
+//coded by : Ra3d🍁#0001 - Ln,Muziky#8956
 
 //كود برود كاست للسيرفرات الي فيها البوت 
+//coded by : Ra3d🍁#0001 - Ln,Muziky#8956
 
 
 client.on("message", message => {
@@ -82,16 +84,18 @@ client.on("message", message => {
     let help = new Discord.MessageEmbed()
       .setColor("0x5016f3")
       .setDescription(`** ${client.user} Commands**
-
 BoardCast
-/-/bc/
-            
-         --------------------------------------------------
+\`${prefix}bc\` **| bc to all! [Upgrade] -New can send to bots-**
+\`${prefix}obc\` ** | bc to all online! [Upgrade] -New can send to bots-**
+\`${prefix}inv\` ** | to invite bot in your server! : )
+\`${prefix}support\` ** | to get an invite link for the support server! : )
 
             `);
     message.channel.send(help);
   }
 });
+  //coded by : Ra3d🍁#0001 - Ln,Muziky#8956
+/*
 client.on("message", message => {
 
 if (message.content.toLowerCase() === prefix + 'supp'.toLowerCase() || message.content.toLowerCase() === prefix + 'support'.toLowerCase()) { 
@@ -108,28 +112,33 @@ if (message.content.toLowerCase() === prefix + 'supp'.toLowerCase() || message.c
 }
  
 });
-
-///coded by : Ra3d🍁#0001
+*/
+//coded by : Ra3d🍁#0001 - Ln,Muziky#8956
 
 client.on('message', message => { 
-var prefix = '-'///coded by : Ra3d🍁#0001
-                                if(!message.channel.guild) return;///coded by : Ra3d🍁#0001
+var prefix = '-'///coded by : Ra3d🍁#0001 - Ln,Muziky#8956
+
+                                if(!message.channel.guild) return;//coded by : Ra3d🍁#0001 - Ln,Muziky#8956
+
                         if (message.content.startsWith(prefix + 'ping')) {
                             if(!message.channel.guild) return;
                             var msg = `${Date.now() - message.createdTimestamp}`
                             var api = `${Math.round(client.ping)}`
-                            if (message.author.bot) return;///coded by : Ra3d🍁#0001
+                            if (message.author.bot) return;//coded by : Ra3d🍁#0001 - Ln,Muziky#8956
+
                         let embed = new Discord.RichEmbed()
                         .setAuthor(message.author.username,message.author.avatarURL)
                         .setColor('#5016f3')
                         .addField('**My Ping is:**',msg + " ms :signal_strength: ")
                         .addField('**Discord API :**',api + " ms :signal_strength: ")
                         .setTimestamp()
-        message.channel.send({embed:embed});///coded by : Ra3d🍁#0001
+        message.channel.send({embed:embed});//coded by : Ra3d🍁#0001 - Ln,Muziky#8956
+
                         }
                     });
-///coded by : Ra3d🍁#0001
+//coded by : Ra3d🍁#0001 - Ln,Muziky#8956
 
 
+})
 
 client.login(process.env.token);
