@@ -28,7 +28,13 @@ client.on("message", message => {
   message.guild.members.filter(m => m.presence.status !== 'online').forEach(m => {
  m.send(`${argresult}\n ${m}`);
 })
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : ${client.user} تمكن من الارسال الى`); 
+let embed = new Discord.RichEmbed()
+.setAuthor(message.author.username,message.author.avatarURL)
+.setColor('#5016f3')
+                        .setDescription(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : تمكن ${client.user} من الارسال الى `)
+                        .setTimestamp()
+        message.channel.send({embed:embed});//coded by : Ra3d🍁#0001 - Ln,Muziky#8956
+
  message.delete(); 
 };     
 });
@@ -40,10 +46,9 @@ client.on("message", message => {
 client.on("message", message => {
 if (message.content.startsWith(prefix + "bc")) {
 if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' '); 
+  let args = message.content.split(" ").slice(1).join(' ')
   message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
- m.send(`${argresult}\n ${m}`);
+ m.send(`${args}\n ${m}`);
 })
               let embed = new Discord.RichEmbed()
 .setAuthor(message.author.username,message.author.avatarURL)
@@ -68,28 +73,28 @@ if (message.content.toLowerCase() === prefix + 'inv'.toLowerCase() || message.co
 .setTimestamp()
 .setColor(`#141414`)
 .setAuthor(message.author.username, message.author.avatarURL)
-.setFooter(`TAXES BOT | V 2.0.9 `)
-.setDescription(`**:candle: شكرا لاختيارك بوتنا [Bot Link](https://discord.com/api/oauth2/authorize?client_id=755186473581543516&permissions=8&scope=bot) .**`)
+.setFooter(`${client.user.tag} BOT `)
+.setDescription(`**:candle: شكرا لاختيارك بوتنا 
+[Bot Link](https://discord.com/api/oauth2/authorize?client_id=755186473581543516&permissions=8&scope=bot) .**`)
  message.author.send(invite).then( m => {
       message.react('✅')
     }).catch(err =>  { message.react('❌') })
 }
- 
 });
 client.on("message", message => {
-  
-
-client.on("message", message => {
   if (message.content == prefix + "help") {
-    let help = new Discord.MessageEmbed()
+    let help = new Discord.RichEmbed()
       .setColor("0x5016f3")
-      .setDescription(`** ${client.user} Commands**
-BoardCast
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .setDescription(`** ${client.user} Commands :**
+
+**BoardCast**
 \`${prefix}bc\` **| bc to all! [Upgrade] -New can send to bots-**
 \`${prefix}obc\` ** | bc to all online! [Upgrade] -New can send to bots-**
-\`${prefix}inv\` ** | to invite bot in your server! : )
-\`${prefix}support\` ** | to get an invite link for the support server! : )
+\`${prefix}inv\` ** | to invite bot in your server! : )**
+\`${prefix}support\`  ** | to get an invite link for the support server! : )**
 
+**Code Developers : <@543621145627328524> - <@609544947816988702>**
             `);
     message.channel.send(help);
   }
@@ -139,6 +144,5 @@ var prefix = '-'///coded by : Ra3d🍁#0001 - Ln,Muziky#8956
 //coded by : Ra3d🍁#0001 - Ln,Muziky#8956
 
 
-})
 
 client.login(process.env.token);
