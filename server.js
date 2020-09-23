@@ -33,7 +33,7 @@ client.on("message", message => {
 };     
 });
 
-///عندك بكجات حلوه؟
+
 //كود برودكاست للاون لاين فقط
 
 
@@ -54,7 +54,53 @@ client.on("message", message => {
 //كود برود كاست للسيرفرات الي فيها البوت 
 
 
+client.on("message", message => {
 
+if (message.content.toLowerCase() === prefix + 'inv'.toLowerCase() || message.content.toLowerCase() === prefix + 'invite'.toLowerCase()) { 
+ var invite = new Discord.RichEmbed()
+.setTimestamp()
+.setColor(`#141414`)
+.setAuthor(message.author.username, message.author.avatarURL)
+.setFooter(`TAXES BOT | V 2.0.9 `)
+.setDescription(`**:candle: شكرا لاختيارك بوتنا [Bot Link](https://discord.com/api/oauth2/authorize?client_id=755186473581543516&permissions=8&scope=bot) .**`)
+ message.author.send(invite).then( m => {
+      message.react('✅')
+    }).catch(err =>  { message.react('❌') })
+}
+ 
+});
+client.on("message", message => {
+  
+
+if (message.content.toLowerCase().startsWith(prefix + "help".toLowerCase())) {
+
+       let main_help_en = new Discord.MessageEmbed()
+.setTimestamp().setColor("RED").setAuthor(`Help Commands`, message.author.displayAvatarURL()).setFooter(`For more information about the commands use : ${prefix}help ( command )`,client.user.displayAvatarURL()).setThumbnail(client.user.displayAvatarURL())
+.setDescription(`> **${client.user.username} 's Help commands\n> Available Commands : " 9 " Command\n> Prefix : \`${prefix}\` | Language : English :flag_gb:**`)
+.addFields(
+      { name: 'BroadCast Commands', value: `\`${prefix}bc \` , \`paypal-tax\` \`credits\`, \`daily\``}, 
+      { name: 'Admins', value: `\`setprefix\` , \`setlanguage\` , \`settype\`` },
+      { name: 'Extra', value: `\`stats\` , \`invite\` , \`support\` , \`help\``})
+} 
+  })
+
+
+client.on("message", message => {
+
+if (message.content.toLowerCase() === prefix + 'supp'.toLowerCase() || message.content.toLowerCase() === prefix + 'support'.toLowerCase()) { 
+ var invite = new Discord.RichEmbed()
+.setTimestamp()
+.setColor(`#141414`)
+.setAuthor(message.author.username, message.author.avatarURL)
+.setFooter(`TAXES BOT | V 2.0.9 `)
+.setDescription(`**:candle: تنور سيرفر السبورت 
+[Server Link](https://discord.gg/eZX4vJx) .**`)
+ message.author.send(invite).then( m => {
+      message.react('✅')
+    }).catch(err =>  { message.react('❌') })
+}
+ 
+});
 
 
 client.login(process.env.token);
