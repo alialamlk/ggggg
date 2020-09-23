@@ -27,7 +27,7 @@ client.on("message", message => {
       .split(" ")
       .slice(1)
       .join(" ");
-    if (!args) return message.reply(`Please Type message bc`);
+    if (!aفrgs) return message.reply(`Please Type message bc`);
     message.guild.members
       .filter(m => m.presence.status !== "online")
       .forEach(m => {
