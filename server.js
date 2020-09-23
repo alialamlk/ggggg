@@ -11,7 +11,9 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`Logged in as : ${client.user.username}`);
+  client.user.setActivity(`${prefix}Help`);
+  client.user.setStatus('idle')
 });
 
 //coded by : Ra3d🍁#0001 - Ln,Muziky#8956
@@ -23,10 +25,10 @@ var prefix = "-"; // تعديل مهم جدا
 client.on("message", message => {
             if (message.content.startsWith(prefix + "obc")) {
                          if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' '); 
+  let args = message.content.split(" ").slice(1).join(' ')
+if(!args)return message.reply(`Please Type message bc`)
   message.guild.members.filter(m => m.presence.status !== 'online').forEach(m => {
- m.send(`${argresult}\n ${m}`);
+ m.send(`${args}\n ${m}`);
 })
 let embed = new Discord.RichEmbed()
 .setAuthor(message.author.username,message.author.avatarURL)
@@ -47,6 +49,7 @@ client.on("message", message => {
 if (message.content.startsWith(prefix + "bc")) {
 if (!message.member.hasPermission("ADMINISTRATOR"))  return;
   let args = message.content.split(" ").slice(1).join(' ')
+if(!args)return message.reply(`Please Type message bc`)
   message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
  m.send(`${args}\n ${m}`);
 })
