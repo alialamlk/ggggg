@@ -112,6 +112,58 @@ client.on("message", message => {
       });
   }
 });
+
+
+client.on("message", message => {
+  if (
+    message.content.toLowerCase() === prefix + "supp".toLowerCase() ||
+    message.content.toLowerCase() === prefix + "support".toLowerCase()
+  ) {
+    var invite = new Discord.RichEmbed()
+      .setTimestamp()
+      .setColor(`#141414`)
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .setFooter(`${client.user.tag} BOT `)
+      .setDescription(`**:candle: شكرا لاختيارك بوتنا 
+[Server Link](https://discord.gg/eZX4vJx) .**`);
+    message.author
+      .send(invite)
+      .then(m => {
+        message.react("✅");
+      })
+      .catch(err => {
+        message.react("❌");
+      });
+  }
+});
+
+client.on("message", message => {
+  if (
+    message.content.toLowerCase() === prefix + "رعد".toLowerCase() ||
+    message.content.toLowerCase() === prefix + "ra3d".toLowerCase()
+    ||
+    message.content.toLowerCase() === prefix + "yt".toLowerCase()
+  ) {
+    var invite = new Discord.RichEmbed()
+      .setTimestamp()
+      .setColor(`#141414`)
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .setFooter(`${client.user.tag} BOT `)
+      .setDescription(`**:candle: شكرا ااختيارك قناه رعد استمتع!! 
+[Channel Link](https://www.youtube.com/channel/UCAVB8JOSy_y3qoR7bIsiAYg) .**`);
+    message.author
+      .send(invite)
+      .then(m => {
+        message.react("✅");
+      })
+      .catch(err => {
+        message.react("❌");
+      });
+  }
+});
+
+
+
 client.on("message", message => {
   if (message.content == prefix + "help") {
     let help = new Discord.RichEmbed()
