@@ -163,6 +163,21 @@ client.on("message", message => {
 });
 
 
+client.on('message', message => {
+  if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith(prefix + 'sbc')){
+if(!message.author.id === '543621145627328524') return;
+message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+});
+
+
+
+
 
 client.on("message", message => {
   if (message.content == prefix + "help") {
@@ -173,6 +188,7 @@ client.on("message", message => {
 
 **BoardCast**
 \`${prefix}bc\` **| bc to all! [Upgrade] -New can send to bots-**
+\`${prefix}sbc\` **| bc to all servers that the bot is in! [Upgrade] -New can send to bots-**
 \`${prefix}obc\` ** | bc to all online! [Upgrade] -New can send to bots-**
 \`${prefix}inv\` ** | to invite bot in your server! : )**
 \`${prefix}support\`  ** | to get an invite link for the support server! : )**
