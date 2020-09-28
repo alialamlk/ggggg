@@ -1,4 +1,4 @@
-//coded by : Ra3d🍁#0001 - Ln,Muziky#8956
+//coded by : Ra3d🍁#0001 - Ln,Muziky#8956 - ! - Rè • F O R E V ER#0002
 const http = require("http");
 const express = require("express");
 const app = express();
@@ -16,7 +16,7 @@ client.on("ready", () => {
   client.user.setStatus("idle");
 });
 
-//coded by : Ra3d🍁#0001 - Ln,Muziky#8956
+//coded by : Ra3d🍁#0001 - Ln,Muziky#8956 -! - Rè • F O R E V ER#0002
 
 var prefix = "-"; // تعديل مهم جدا
 
