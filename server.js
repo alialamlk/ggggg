@@ -87,7 +87,6 @@ client.on("message", message => {
 });
 //coded by : Ra3d🍁#0001 - Ln,Muziky#8956
 
-//كود برود كاست للسيرفرات الي فيها البوت
 //coded by : Ra3d🍁#0001 - Ln,Muziky#8956
 
 client.on("message", message => {
@@ -160,24 +159,6 @@ client.on("message", message => {
         message.react("❌");
       });
   }
-});
-
-
-client.on('message', message => {
-  if(!message.channel.guild) return;
-let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith(prefix + 'sbc')){
-if(!message.author.id === '543621145627328524') return;
-var invite = new Discord.RichEmbed()
-      .setTimestamp()
-      .setColor(`#141414`)
-      .setAuthor(message.author.username, message.author.avatarURL)
-      .setFooter(`${client.user.tag} BOT `)
-message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
-client.users.forEach(m =>{
-m.sendMessage(args)
-})
-}
 });
 
 
