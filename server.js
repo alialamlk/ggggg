@@ -89,52 +89,7 @@ client.on("message", message => {
 
 //coded by : Ra3d🍁#0001 - Ln,Muziky#8956
 
-client.on("message", message => {
-  if (
-    message.content.toLowerCase() === prefix + "inv".toLowerCase() ||
-    message.content.toLowerCase() === prefix + "invite".toLowerCase()
-  ) {
-    var invite = new Discord.RichEmbed()
-      .setTimestamp()
-      .setColor(`#141414`)
-      .setAuthor(message.author.username, message.author.avatarURL)
-      .setFooter(`${client.user.tag} BOT `)
-      .setDescription(`**:candle: شكرا لاختيارك بوتنا 
-[Bot Link](https://discord.com/api/oauth2/authorize?client_id=755186473581543516&permissions=8&scope=bot) .**`);
-    message.author
-      .send(invite)
-      .then(m => {
-        message.react("✅");
-      })
-      .catch(err => {
-        message.react("❌");
-      });
-  }
-});
 
-
-client.on("message", message => {
-  if (
-    message.content.toLowerCase() === prefix + "supp".toLowerCase() ||
-    message.content.toLowerCase() === prefix + "support".toLowerCase()
-  ) {
-    var invite = new Discord.RichEmbed()
-      .setTimestamp()
-      .setColor(`#141414`)
-      .setAuthor(message.author.username, message.author.avatarURL)
-      .setFooter(`${client.user.tag} BOT `)
-      .setDescription(`**:candle: شكرا لاختيارك بوتنا 
-[Server Link](https://discord.gg/eZX4vJx) .**`);
-    message.author
-      .send(invite)
-      .then(m => {
-        message.react("✅");
-      })
-      .catch(err => {
-        message.react("❌");
-      });
-  }
-});
 
 client.on("message", message => {
   if (
@@ -174,7 +129,6 @@ client.on("message", message => {
 
 **BoardCast**
 \`${prefix}bc\` **| bc to all! [Upgrade] -New can send to bots-**
-\`${prefix}sbc\` **| bc to all servers that the bot is in! [Upgrade] -New can send to bots-**
 \`${prefix}obc\` ** | bc to all online! [Upgrade] -New can send to bots-**
 \`${prefix}inv\` ** | to invite bot in your server! : )**
 \`${prefix}support\`  ** | to get an invite link for the support server! : )**
@@ -185,24 +139,7 @@ client.on("message", message => {
   }
 });
 //coded by : Ra3d🍁#0001 - Ln,Muziky#8956
-/*
-client.on("message", message => {
 
-if (message.content.toLowerCase() === prefix + 'supp'.toLowerCase() || message.content.toLowerCase() === prefix + 'support'.toLowerCase()) { 
- var invite = new Discord.RichEmbed()
-.setTimestamp()
-.setColor(`#141414`)
-.setAuthor(message.author.username, message.author.avatarURL)
-.setFooter(`TAXES BOT | V 2.0.9 `)
-.setDescription(`**:candle: تنور سيرفر السبورت 
-[Server Link](https://discord.gg/eZX4vJx) .**`)
- message.author.send(invite).then( m => {
-      message.react('✅')
-    }).catch(err =>  { message.react('❌') })
-}
- 
-});
-*/
 //coded by : Ra3d🍁#0001 - Ln,Muziky#8956
 
 client.on("message", message => {
