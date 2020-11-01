@@ -31,11 +31,13 @@ client.on("message", message => {
     message.guild.members
       .filter(m => m.presence.status !== "online")
       .forEach(m => {
-        m.send(`${args}\n ${m}`).then(()=>{
- console.log(`Send To ${m.user.tag} Successfully!`);
-                }).catch(function(){
-                    console.log("i cant send to: "+m.user.tag+".");
-                });
+        m.send(`${args}\n ${m}`)
+          .then(() => {
+            console.log(`Send To ${m.user.tag} Successfully!`);
+          })
+          .catch(function() {
+            console.log("i cant send to: " + m.user.tag + ".");
+          });
       });
     let embed = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
@@ -65,11 +67,13 @@ client.on("message", message => {
     message.guild.members
       .filter(m => m.presence.status !== "offline")
       .forEach(m => {
-        m.send(`${args}\n ${m}`).then(()=>{
- console.log(`Send To ${m.user.tag} Successfully!`);
-                }).catch(function(){
-                    console.log("i cant send to: "+m.user.tag+".");
-                });
+        m.send(`${args}\n ${m}`)
+          .then(() => {
+            console.log(`Send To ${m.user.tag} Successfully!`);
+          })
+          .catch(function() {
+            console.log("i cant send to: " + m.user.tag + ".");
+          });
       });
     let embed = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
@@ -89,13 +93,10 @@ client.on("message", message => {
 
 //coded by : Ra3d🍁#0001 - Ln,Muziky#8956
 
-
-
 client.on("message", message => {
   if (
     message.content.toLowerCase() === prefix + "رعد".toLowerCase() ||
-    message.content.toLowerCase() === prefix + "ra3d".toLowerCase()
-    ||
+    message.content.toLowerCase() === prefix + "ra3d".toLowerCase() ||
     message.content.toLowerCase() === prefix + "yt".toLowerCase()
   ) {
     var invite = new Discord.RichEmbed()
@@ -116,10 +117,6 @@ client.on("message", message => {
   }
 });
 
-
-
-
-
 client.on("message", message => {
   if (message.content == prefix + "help") {
     let help = new Discord.RichEmbed()
@@ -133,7 +130,7 @@ client.on("message", message => {
 \`${prefix}inv\` ** | to invite bot in your server! : )**
 \`${prefix}support\`  ** | to get an invite link for the support server! : )**
 
-**Code Developers : <@543621145627328524> - <@609544947816988702>**
+**Code Developers : <@734136447832948817> - <@609544947816988702>**
             `);
     message.channel.send(help);
   }
