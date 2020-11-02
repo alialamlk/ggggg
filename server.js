@@ -26,7 +26,8 @@ client.on("message", async message => {
       .setTimestamp()
       .setThumbnail(`${message.author.avatarURL}`)
       .setDescription(
-        `**
+        `**Ra3d BroadCast Bot Commands : 
+
           ${prefix}bc : لـ ارسال برودكاست الي الكل
           ${prefix}obc : لـ ارسال برودكاست الي الاونلاين
           
@@ -37,7 +38,7 @@ client.on("message", async message => {
           ${prefix}bot : لـ معلومات البوت
           **`
       )
-      .addField(`**By :**`, `**<@735880620810698812>**`);
+      .addField(`**By :**`, `**<@734136447832948817>**`);
     message.channel.sendEmbed(help);
     message.delete();
   }
@@ -63,9 +64,16 @@ client.on("message", message => {
       .setThumbnail(message.author.avatarURL);
     if (!args) return message.channel.sendEmbed(embed);
     message.guild.members.forEach(m => {
-      m.send(`${args}\n ${m}`);
+             m.send(`${args}\n ${m}`)
+          .then(() => {
+            console.log(`لقد ارسلت الى : ${m.user.tag} Successfully!`);
+          })
+          .catch(function() {
+            console.log("i cant send to: " + m.user.tag + ".");
+          });
+      });
       message.delete();
-    });
+    
     const embedd = new Discord.RichEmbed()
       .setColor("RANDOM")
       .addField(
