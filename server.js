@@ -13,6 +13,56 @@ const owner = [
   "734136447832948817",
   ""
 ];
+
+client.on("message", message => {
+  ///coded by : Ra3d🍁#0001 - Ln,Muziky#8956
+
+  if (!message.channel.guild) return; //coded by : Ra3d🍁#0001 - Ln,Muziky#8956
+
+  if (message.content.startsWith(prefix + "ping")) {
+    if (!message.channel.guild) return;
+    var msg = `${Date.now() - message.createdTimestamp}`;
+    var api = `${Math.round(client.ping)}`;
+    if (message.author.bot) return; //coded by : Ra3d🍁#0001 - Ln,Muziky#8956
+
+    let embed = new Discord.RichEmbed()
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .setColor("#5016f3")
+      .addField("**My Ping is:**", msg + " ms :signal_strength: ")
+      .addField("**Discord API :**", api + " ms :signal_strength: ")
+      .setTimestamp();
+    message.channel.send({ embed: embed }); //coded by : Ra3d🍁#0001 - Ln,Muziky#8956
+  }
+});
+
+client.on("message", async message => {
+  if (message.content.startsWith(prefix + "help")) {
+    if (!owner.includes(message.author.id))
+      return message.reply("**6ix9ine Only:x:**");
+    message.delete();
+    let help = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setFooter(`${message.author.tag}`, `${message.author.avatarURL}`)
+      .setTimestamp()
+      .setThumbnail(`${message.author.avatarURL}`)
+      .setDescription(
+        `**
+          ${prefix}bc : لـ ارسال برودكاست الي الكل
+          ${prefix}obc : لـ ارسال برودكاست الي الاونلاين
+          
+          ${prefix}setName : لـ تـغـيـر الأسـم
+          ${prefix}setAvatar : لـ تـغـيـر الـصـورة
+          
+          ${prefix}invite : لـ دعوة الـبـوت
+          ${prefix}bot : لـ معلومات البوت
+          **`
+      )
+      .addField(`**By :**`, `**<@670670491828224000>**`);
+    message.channel.sendEmbed(help);
+    message.delete();
+  }
+});
+
 client.on("message", message => {
   let args = message.content
     .split(" ")
@@ -87,33 +137,7 @@ client.on("message", message => {
   }
 });
 
-client.on("message", async message => {
-  if (message.content.startsWith(prefix + "help")) {
-    if (!owner.includes(message.author.id))
-      return message.reply("**6ix9ine Only:x:**");
-    message.delete();
-    let help = new Discord.RichEmbed()
-      .setColor("RANDOM")
-      .setFooter(`${message.author.tag}`, `${message.author.avatarURL}`)
-      .setTimestamp()
-      .setThumbnail(`${message.author.avatarURL}`)
-      .setDescription(
-        `**-------------------------
-          ${prefix}bc : لـ ارسال برودكاست الي الكل
-          ${prefix}obc : لـ ارسال برودكاست الي الاونلاين
-          -------------------------
-          ${prefix}setName : لـ تـغـيـر الأسـم
-          ${prefix}setAvatar : لـ تـغـيـر الـصـورة
-          -------------------------
-          ${prefix}invite : لـ دعوة الـبـوت
-          ${prefix}bot : لـ معلومات البوت
-          -------------------------**`
-      )
-      .addField(`**By :**`, `**<@670670491828224000>**`);
-    message.channel.sendEmbed(help);
-    message.delete();
-  }
-});
+
 
 const change = "734136447832948817";
 client.on("message", message => {
