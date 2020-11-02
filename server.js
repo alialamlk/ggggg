@@ -18,7 +18,7 @@ client.on("ready", () => {
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "help")) {
     if (!xv.includes(message.author.id))
-      return message.reply("**6ix9ine Only:x:**");
+      return message.reply("**:x:لا يحبيبي فقط لعمك XV**");
     message.delete();
     let help = new Discord.RichEmbed()
       .setColor("RANDOM")
@@ -52,7 +52,7 @@ client.on("message", message => {
     .join(" ");
   if (message.content.startsWith(prefix + "bc")) {
     if (!xv.includes(message.author.id))
-      return message.reply("**6ix9ine Only:x:**");
+      return message.reply("**:x:لا يحبيبي فقط لعمك XV**");
     message.delete();
     let embed = new Discord.RichEmbed()
       .setColor(`RANDOM`)
@@ -85,7 +85,7 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.content.startsWith(prefix + "obc")) {
     if (!xv.includes(message.author.id))
-      return message.reply("**6ix9ine Only:x:**");
+      return message.reply("**:x:لا يحبيبي فقط لعمك XV**");
     message.delete();
     let args = message.content.split(" ").slice(1);
     var argresult = args.join(" ");
@@ -128,7 +128,7 @@ client.on("message", message => {
     .join(" ");
   if (message.content.startsWith(prefix + "setName")) {
     if (!change.includes(message.author.id))
-      return message.reply("**6ix9ine Only:x:**");
+      return message.reply("**:x:لا يحبيبي فقط لعمك XV**");
     message.delete();
     let embed = new Discord.RichEmbed()
       .setColor(`RANDOM`)
@@ -155,7 +155,7 @@ client.on("message", message => {
     .join(" ");
   if (message.content.startsWith(prefix + "setname")) {
     if (!change.includes(message.author.id))
-      return message.reply("**6ix9ine Only:x:**");
+      return message.reply("**:x:لا يحبيبي فقط لعمك XV**");
     message.delete();
     let embed = new Discord.RichEmbed()
       .setColor(`RANDOM`)
@@ -183,7 +183,7 @@ client.on("message", message => {
     .join(" ");
   if (message.content.startsWith(prefix + "setAvatar")) {
     if (!change.includes(message.author.id))
-      return message.reply("**6ix9ine Only:x:**");
+      return message.reply("**:x:لا يحبيبي فقط لعمك XV**");
     message.delete();
     let embed = new Discord.RichEmbed()
       .setColor(`RANDOM`)
@@ -210,7 +210,7 @@ client.on("message", message => {
     .join(" ");
   if (message.content.startsWith(prefix + "setavatar")) {
     if (!change.includes(message.author.id))
-      return message.reply("**6ix9ine Only:x:**");
+      return message.reply("**:x:لا يحبيبي فقط لعمك XV**");
     message.delete();
     let embed = new Discord.RichEmbed()
       .setColor(`RANDOM`)
