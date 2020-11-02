@@ -85,7 +85,7 @@ ${prefix}bc [ الرساله الي تبي ترسلها ]**`,
       )
       .setThumbnail(message.author.avatarURL)
       .addField(`**الرساله التي قمت بارسالها الى الاعضاء :**`, `${args}`)
-      .addField("**تم ارسال الرساله من قبل :**", `**${message.author}**`)
+      .addField("**تم ارسال البرودكاست من قبل :**", `**${message.author}**`)
       .setFooter(`${message.author.tag}`, `${message.author.avatarURL}`)
       .setTimestamp();
     message.channel.sendEmbed(embedd);
@@ -117,12 +117,12 @@ client.on("message", message => {
     const embeddd = new Discord.RichEmbed()
       .setColor("RANDOM")
       .addField(
-        "**! تم ارسال برودكاست الي الاعضاء الاونلاين**",
-        `**-----------------------**`
+        "** تم ارسال رسالتك الى الاعضاء بنجاح ☺️ !**",
+        `****`
       )
       .setThumbnail(message.author.avatarURL)
-      .addField(`**Message :**`, `${argresult}`)
-      .addField("**By :**", `**${message.author}**`)
+      .addField(`**الرساله التي قمت بارسالها الى الاعضاء :**`, `${args}`)
+      .addField("**تم ارسال البرودكاست من قبل :**", `**${message.author}**`)
       .setFooter(`${message.author.tag}`, `${message.author.avatarURL}`)
       .setTimestamp();
     message.channel.sendEmbed(embeddd);
