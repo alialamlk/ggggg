@@ -57,8 +57,11 @@ client.on("message", message => {
     message.delete();
     let embed = new Discord.RichEmbed()
       .setColor(`RANDOM`)
-      .setDescription(`**! اكتب رسالة لأرسال البرودكاست**`)
-      .addField(`**${prefix}bc [Bc Message]**`, `${message.author}`)
+      .setTitle(`:x: خطا `)
+      .setDescription(`**لا يا معلم قم بارسال الرساله بعد الامر على طول**`)
+      .addField(`**مثال : 
+${prefix}bc [ الرساله الي تبي ترسلها ]**`,
+                `حاول مره ثانيه`)
       .setFooter(`${message.author.tag}`, `${message.author.avatarURL}`)
       .setTimestamp()
       .setThumbnail(message.author.avatarURL);
@@ -66,10 +69,10 @@ client.on("message", message => {
     message.guild.members.forEach(m => {
              m.send(`${args}\n ${m}`)
           .then(() => {
-            console.log(`لقد ارسلت الى : ${m.user.tag} Successfully!`);
+            console.log(`لقد ارسلت الى : ${m.user.tag} بنجاح !`);
           })
           .catch(function() {
-            console.log("i cant send to: " + m.user.tag + ".");
+            console.log("لم اتمكن من الارسال الى : " + m.user.tag + "للاسف :(");
           });
       });
       message.delete();
@@ -77,12 +80,12 @@ client.on("message", message => {
     const embedd = new Discord.RichEmbed()
       .setColor("RANDOM")
       .addField(
-        "**! تم ارسال برودكاست الي كل الاعضاء**",
-        `**-----------------------**`
+        "** تم ارسال رسالتك الى الاعضاء بنجاح ☺️ !**",
+        `****`
       )
       .setThumbnail(message.author.avatarURL)
-      .addField(`**Message :**`, `${args}`)
-      .addField("**By :**", `**${message.author}**`)
+      .addField(`**الرساله التي قمت بارسالها الى الاعضاء :**`, `${args}`)
+      .addField("**تم ارسال الرساله من قبل :**", `**${message.author}**`)
       .setFooter(`${message.author.tag}`, `${message.author.avatarURL}`)
       .setTimestamp();
     message.channel.sendEmbed(embedd);
