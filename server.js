@@ -38,7 +38,7 @@ client.on("message", async message => {
           ${prefix}bot : لـ معلومات البوت
           **`
       )
-      .addField(`**By :**`, `**<@734136447832948817>**`);
+      .addField(`**الي برمج بوت وسام المز :**`, `**<@734136447832948817>**`);
     message.channel.sendEmbed(help);
     message.delete();
   }
