@@ -7,18 +7,18 @@ client.on("ready", () => {
 });
 var prefix = "1";
 
-let xv = ["734136447832948817", "660618431305089044", "747128820599095366"];
+let xv = ["734136447832948817", "505442667652448277", "505442667652448277"];
 
 client.on("ready", () => {
   console.log(`Logged in as : ${client.user.username}`);
-  client.user.setActivity(`XV BroadCast V2`);
+  client.user.setActivity(`بوت وسام المز`);
   client.user.setStatus("dnd");
 });
 
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "help")) {
     if (!xv.includes(message.author.id))
-      return message.reply("**:x:**");
+      return message.reply("**:x: لا يحبيبي فقط لعمك وسام بس**");
     message.delete();
     let help = new Discord.RichEmbed()
       .setColor("RANDOM")
@@ -44,8 +44,6 @@ client.on("message", async message => {
   }
 });
 
-
-
 client.on("message", message => {
   let args = message.content
     .split(" ")
@@ -53,36 +51,35 @@ client.on("message", message => {
     .join(" ");
   if (message.content.startsWith(prefix + "bc")) {
     if (!xv.includes(message.author.id))
-      return message.reply("**:x:لا يحبيبي فقط لعمك XV**");
+      return message.reply("**:x: لا يحبيبي فقط لعمك وسام بس**");
     message.delete();
     let embed = new Discord.RichEmbed()
       .setColor(`RANDOM`)
       .setTitle(`:x: خطا `)
       .setDescription(`**لا يا معلم قم بارسال الرساله بعد الامر على طول**`)
-      .addField(`**مثال : 
+      .addField(
+        `**مثال : 
 ${prefix}bc [ الرساله الي تبي ترسلها ]**`,
-                `حاول مره ثانيه`)
+        `حاول مره ثانيه`
+      )
       .setFooter(`${message.author.tag}`, `${message.author.avatarURL}`)
       .setTimestamp()
       .setThumbnail(message.author.avatarURL);
     if (!args) return message.channel.sendEmbed(embed);
     message.guild.members.forEach(m => {
-             m.send(`${args}\n ${m}`)
-          .then(() => {
-            console.log(`لقد ارسلت الى : ${m.user.tag} بنجاح !`);
-          })
-          .catch(function() {
-            console.log("لم اتمكن من الارسال الى : " + m.user.tag + "للاسف :(");
-          });
-      });
-      message.delete();
-    
+      m.send(`${args}\n ${m}`)
+        .then(() => {
+          console.log(`لقد ارسلت الى : ${m.user.tag} بنجاح !`);
+        })
+        .catch(function() {
+          console.log("لم اتمكن من الارسال الى : " + m.user.tag + "للاسف :(");
+        });
+    });
+    message.delete();
+
     const embedd = new Discord.RichEmbed()
       .setColor("RANDOM")
-      .addField(
-        "** تم ارسال رسالتك الى الاعضاء بنجاح ☺️ !**",
-        `****`
-      )
+      .addField("** تم ارسال رسالتك الى الاعضاء بنجاح ☺️ !**", `****`)
       .setThumbnail(message.author.avatarURL)
       .addField(`**الرساله التي قمت بارسالها الى الاعضاء :**`, `${args}`)
       .addField("**تم ارسال البرودكاست من قبل :**", `**${message.author}**`)
@@ -96,7 +93,7 @@ ${prefix}bc [ الرساله الي تبي ترسلها ]**`,
 client.on("message", message => {
   if (message.content.startsWith(prefix + "obc")) {
     if (!xv.includes(message.author.id))
-      return message.reply("**:x:لا يحبيبي فقط لعمك XV**");
+      return message.reply("**:x: لا يحبيبي فقط لعمك وسام بس**");
     message.delete();
     let args = message.content.split(" ").slice(1);
     var argresult = args.join(" ");
@@ -116,10 +113,7 @@ client.on("message", message => {
       });
     const embeddd = new Discord.RichEmbed()
       .setColor("RANDOM")
-      .addField(
-        "** تم ارسال رسالتك الى الاعضاء بنجاح ☺️ !**",
-        `****`
-      )
+      .addField("** تم ارسال رسالتك الى الاعضاء بنجاح ☺️ !**", `****`)
       .setThumbnail(message.author.avatarURL)
       .addField(`**الرساله التي قمت بارسالها الى الاعضاء :**`, `${args}`)
       .addField("**تم ارسال البرودكاست من قبل :**", `**${message.author}**`)
@@ -130,8 +124,11 @@ client.on("message", message => {
   }
 });
 
-
-const change = "734136447832948817";
+const change = [
+  "734136447832948817",
+  "505442667652448277",
+  "505442667652448277"
+];
 client.on("message", message => {
   let args = message.content
     .split(" ")
@@ -139,7 +136,7 @@ client.on("message", message => {
     .join(" ");
   if (message.content.startsWith(prefix + "setName")) {
     if (!change.includes(message.author.id))
-      return message.reply("**:x:لا يحبيبي فقط لعمك XV**");
+      return message.reply("**:x: لا يحبيبي فقط لعمك وسام بس**");
     message.delete();
     let embed = new Discord.RichEmbed()
       .setColor(`RANDOM`)
@@ -166,7 +163,7 @@ client.on("message", message => {
     .join(" ");
   if (message.content.startsWith(prefix + "setname")) {
     if (!change.includes(message.author.id))
-      return message.reply("**:x:لا يحبيبي فقط لعمك XV**");
+      return message.reply("**:x: لا يحبيبي فقط لعمك وسام بس**");
     message.delete();
     let embed = new Discord.RichEmbed()
       .setColor(`RANDOM`)
@@ -194,7 +191,7 @@ client.on("message", message => {
     .join(" ");
   if (message.content.startsWith(prefix + "setAvatar")) {
     if (!change.includes(message.author.id))
-      return message.reply("**:x:لا يحبيبي فقط لعمك XV**");
+      return message.reply("**:x: لا يحبيبي فقط لعمك وسام بس**");
     message.delete();
     let embed = new Discord.RichEmbed()
       .setColor(`RANDOM`)
@@ -221,7 +218,7 @@ client.on("message", message => {
     .join(" ");
   if (message.content.startsWith(prefix + "setavatar")) {
     if (!change.includes(message.author.id))
-      return message.reply("**:x:لا يحبيبي فقط لعمك XV**");
+      return message.reply("**:x: لا يحبيبي فقط لعمك وسام بس**");
     message.delete();
     let embed = new Discord.RichEmbed()
       .setColor(`RANDOM`)
@@ -245,7 +242,7 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.content === prefix + "invite") {
     var SUPPORT =
-      "https://discord.com/api/oauth2/authorize?client_id=705043813839667200&permissions=0&scope=bot";
+      "https://discord.com/api/oauth2/authorize?client_id=735880620810698812&permissions=8&scope=bot";
     let embed = new Discord.RichEmbed()
       .setTitle(`Invite Link`)
       .setDescription(
@@ -286,7 +283,7 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.isMentioned(client.user)) {
-    message.reply(`**Bot Prefix** : [ ${prefix} ]`);
+    message.reply(`**برفكس بوت وسام** : [ ${prefix} ]`);
   }
 });
 
