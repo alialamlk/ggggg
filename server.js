@@ -18,7 +18,7 @@ client.on("ready", () => {
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "help")) {
     if (!xv.includes(message.author.id))
-      return message.reply("**:x:لا يحبيبي فقط لعمك XV**");
+      return message.reply("**:x:**");
     message.delete();
     let help = new Discord.RichEmbed()
       .setColor("RANDOM")
@@ -131,7 +131,7 @@ client.on("message", message => {
 });
 
 
-const change = "735880620810698812";
+const change = "734136447832948817";
 client.on("message", message => {
   let args = message.content
     .split(" ")
