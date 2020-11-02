@@ -7,37 +7,17 @@ client.on("ready", () => {
 });
 var prefix = "1";
 
-const owner = [
-  "670670491828224000",
-  "721370985105719346",
-  "734136447832948817",
-  ""
-];
+let xv = ["734136447832948817", "660618431305089044", "747128820599095366"];
 
-client.on("message", message => {
-  ///coded by : Ra3d🍁#0001 - Ln,Muziky#8956
-
-  if (!message.channel.guild) return; //coded by : Ra3d🍁#0001 - Ln,Muziky#8956
-
-  if (message.content.startsWith(prefix + "ping")) {
-    if (!message.channel.guild) return;
-    var msg = `${Date.now() - message.createdTimestamp}`;
-    var api = `${Math.round(client.ping)}`;
-    if (message.author.bot) return; //coded by : Ra3d🍁#0001 - Ln,Muziky#8956
-
-    let embed = new Discord.RichEmbed()
-      .setAuthor(message.author.username, message.author.avatarURL)
-      .setColor("#5016f3")
-      .addField("**My Ping is:**", msg + " ms :signal_strength: ")
-      .addField("**Discord API :**", api + " ms :signal_strength: ")
-      .setTimestamp();
-    message.channel.send({ embed: embed }); //coded by : Ra3d🍁#0001 - Ln,Muziky#8956
-  }
+client.on("ready", () => {
+  console.log(`Logged in as : ${client.user.username}`);
+  client.user.setActivity(`XV BroadCast V2`);
+  client.user.setStatus("dnd");
 });
 
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "help")) {
-    if (!owner.includes(message.author.id))
+    if (!xv.includes(message.author.id))
       return message.reply("**6ix9ine Only:x:**");
     message.delete();
     let help = new Discord.RichEmbed()
@@ -57,11 +37,13 @@ client.on("message", async message => {
           ${prefix}bot : لـ معلومات البوت
           **`
       )
-      .addField(`**By :**`, `**<@670670491828224000>**`);
+      .addField(`**By :**`, `**<@735880620810698812>**`);
     message.channel.sendEmbed(help);
     message.delete();
   }
 });
+
+
 
 client.on("message", message => {
   let args = message.content
@@ -69,7 +51,7 @@ client.on("message", message => {
     .slice(1)
     .join(" ");
   if (message.content.startsWith(prefix + "bc")) {
-    if (!owner.includes(message.author.id))
+    if (!xv.includes(message.author.id))
       return message.reply("**6ix9ine Only:x:**");
     message.delete();
     let embed = new Discord.RichEmbed()
@@ -102,7 +84,7 @@ client.on("message", message => {
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "obc")) {
-    if (!owner.includes(message.author.id))
+    if (!xv.includes(message.author.id))
       return message.reply("**6ix9ine Only:x:**");
     message.delete();
     let args = message.content.split(" ").slice(1);
@@ -138,8 +120,7 @@ client.on("message", message => {
 });
 
 
-
-const change = "734136447832948817";
+const change = "735880620810698812";
 client.on("message", message => {
   let args = message.content
     .split(" ")
@@ -250,29 +231,6 @@ client.on("message", message => {
   }
 });
 
-client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-client.on("ready", () => {
-  client.user.setStatus("online");
-});
-//client.on("ready", () => {
-//    client.user.setActivity(`6ix9ine Only.`, {
-//        type: "playing"
-//    });
-//});
-
-var statuss = ["", ``];
-var secound = 10;
-client.on("ready", () => {
-  var timeing = Math.floor(secound * 1000);
-  setInterval(function() {
-    var ammount = statuss.length;
-    var num = Math.floor(Math.random() * ammount);
-    client.user.setActivity(statuss[num], { type: "" });
-  }, timeing);
-});
-
 client.on("message", message => {
   if (message.content === prefix + "invite") {
     var SUPPORT =
@@ -321,4 +279,4 @@ client.on("message", message => {
   }
 });
 
-client.login("NzM1ODgwNjIwODEwNjk4ODEy.XxmsPA.BW8ygSfT2ZjginUqIJlnLmIgCQs");
+client.login(process.env.token);
