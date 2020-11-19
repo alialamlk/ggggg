@@ -38,9 +38,9 @@ ${prefix}obc :
 \`\`\`أوامر الاونرات\`\`\`
 ${prefix}settings : 
 \`لمعرفه الاوامر المتاحه\`
-${prefix}settings setname : 
+${prefix}setname : 
 \`لتغير اسم البوت\`
-${prefix}settings setavatar : 
+${prefix}setavatar : 
 \`لتغير صوره البوت\`
 ${prefix}settings setgame : 
 \`(الحاله الي من تحت "الكلام") لتغير حاله حقت البوت\`
