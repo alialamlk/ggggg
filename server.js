@@ -7,7 +7,7 @@ client.on("ready", () => {
 });
 var prefix = "1";
 
-let xv = ["734136447832948817", "505442667652448277", "505442667652448277"];
+let xv = ["734136447832948817", "505442667652448277", "720671987827081267"];
 
 client.on("ready", () => {
   console.log(`Logged in as : ${client.user.username}`);
@@ -26,19 +26,28 @@ client.on("message", async message => {
       .setTimestamp()
       .setThumbnail(`${message.author.avatarURL}`)
       .setDescription(
-        `**Ra3d BroadCast Bot Commands : 
+        `**قائمة المساعدة :
 
-          ${prefix}bc : لـ ارسال برودكاست الي الكل
-          ${prefix}obc : لـ ارسال برودكاست الي الاونلاين
+        \`\`\`أوامر البرودكاست\`\`\`
+${prefix}bc  :
+\`لنشر برود كاست للكل\`
+${prefix}obc : 
+\`لنشر برود كاست للاون لاين فقط\`
 
-          ${prefix}setName : لـ تـغـيـر الأسـم
-          ${prefix}setAvatar : لـ تـغـيـر الـصـورة
-          
-          ${prefix}invite : لـ دعوة الـبـوت
-          ${prefix}bot : لـ معلومات البوت
+\`\`\`أوامر الاونرات\`\`\`
+${prefix}settings : 
+\`لمعرفه الاوامر المتاحه\`
+${prefix}settings setname : 
+\`لتغير اسم البوت\`
+${prefix}settings setavatar : 
+\`لتغير صوره البوت\`
+${prefix}settings setgame : 
+\`(الحاله الي من تحت "الكلام") لتغير حاله حقت البوت\`
+${prefix}settings setstatus : 
+\`(الحاله حقت الاوان) لتغير حاله حقت البوت\`
           **`
       )
-      .addField(`**الي برمج بوت وسام المز :**`, `**<@734136447832948817>**`);
+      .addField(`**> Bot Developer : <@!734136447832948817> **`);
     message.channel.sendEmbed(help);
     message.delete();
   }
@@ -124,45 +133,15 @@ client.on("message", message => {
   }
 });
 
-const change = [
-  "734136447832948817",
-  "505442667652448277",
-  "505442667652448277"
-];
+
+
 client.on("message", message => {
   let args = message.content
     .split(" ")
     .slice(1)
     .join(" ");
-  if (message.content.startsWith(prefix + "setName")) {
-    if (!change.includes(message.author.id))
-      return message.reply("**:x: لا يحبيبي فقط لعمك وسام بس**");
-    message.delete();
-    let embed = new Discord.RichEmbed()
-      .setColor(`RANDOM`)
-      .setDescription(`**! اكتب اسم لتغير الاسم القديم**`)
-      .addField(`**${prefix}setName [New Name]**`, `${message.author}`)
-      .setFooter(`${message.author.tag}`, `${message.author.avatarURL}`)
-      .setTimestamp()
-      .setThumbnail(message.author.avatarURL);
-    if (!args) return message.channel.sendEmbed(embed);
-    client.user.setUsername(`${args}`);
-    const name = new Discord.RichEmbed()
-      .setColor("RANDOM")
-      .setDescription(`**! تـم تـغـيـر الأسـم الـي : ${args}**`)
-      .addField(`**By :**`, `**${message.author}**`)
-      .setFooter(`${message.author.tag}`, `${message.author.avatarURL}`)
-      .setTimestamp();
-    message.channel.sendEmbed(name);
-  }
-});
-client.on("message", message => {
-  let args = message.content
-    .split(" ")
-    .slice(1)
-    .join(" ");
-  if (message.content.startsWith(prefix + "settings setname")) {
-    if (!change.includes(message.author.id))
+  if (message.content.startsWith(prefix + "setname")) {
+    if (!xv.includes(message.author.id))
       return message.reply("**:x: لا يحبيبي فقط لعمك وسام بس**");
     message.delete();
     let embed = new Discord.RichEmbed()
@@ -190,8 +169,8 @@ client.on("message", message => {
     .split(" ")
     .slice(1)
     .join(" ");
-  if (message.content.startsWith(prefix + "settings setavatar")) {
-    if (!change.includes(message.author.id))
+  if (message.content.startsWith(prefix + "setavatar")) {
+    if (!xv.includes(message.author.id))
       return message.reply("**:x: لا يحبيبي فقط لعمك وسام بس**");
     message.delete();
     let embed = new Discord.RichEmbed()
@@ -275,7 +254,7 @@ let ac2 = ["online", "idle", "invisible", "dnd","default"];
   if(!message.channel.guild || message.author.bot) return;
  let args = message.content.split(" ");
   if (args[0] === (prefix + 'settings')) {
-   if (!change.includes(message.author.id)) return;
+   if (!xv.includes(message.author.id)) return;
     else if (args[1] === 'setgame') {
     var ssss = message.content.split(" ").slice(1);  
     var result = ssss.slice(2).join(" ");
