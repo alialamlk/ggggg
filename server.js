@@ -30,7 +30,7 @@ client.on("message", async message => {
 
           ${prefix}bc : لـ ارسال برودكاست الي الكل
           ${prefix}obc : لـ ارسال برودكاست الي الاونلاين
-          
+
           ${prefix}setName : لـ تـغـيـر الأسـم
           ${prefix}setAvatar : لـ تـغـيـر الـصـورة
           
@@ -161,7 +161,7 @@ client.on("message", message => {
     .split(" ")
     .slice(1)
     .join(" ");
-  if (message.content.startsWith(prefix + "setname")) {
+  if (message.content.startsWith(prefix + "settings setname")) {
     if (!change.includes(message.author.id))
       return message.reply("**:x: لا يحبيبي فقط لعمك وسام بس**");
     message.delete();
@@ -184,39 +184,13 @@ client.on("message", message => {
   }
 });
 
+
 client.on("message", message => {
   let args = message.content
     .split(" ")
     .slice(1)
     .join(" ");
-  if (message.content.startsWith(prefix + "setAvatar")) {
-    if (!change.includes(message.author.id))
-      return message.reply("**:x: لا يحبيبي فقط لعمك وسام بس**");
-    message.delete();
-    let embed = new Discord.RichEmbed()
-      .setColor(`RANDOM`)
-      .setDescription(`**! ضع رابط الصورة لتغير الصورة**`)
-      .addField(`**${prefix}setAvatar [Avatar Link]**`, `${message.author}`)
-      .setFooter(`${message.author.tag}`, `${message.author.avatarURL}`)
-      .setTimestamp()
-      .setThumbnail(message.author.avatarURL);
-    if (!args) return message.channel.sendEmbed(embed);
-    client.user.setAvatar(`${args}`);
-    const avatar = new Discord.RichEmbed()
-      .setColor("RANDOM")
-      .setDescription(`**! تـم تـغـيـر الـصـورة**`)
-      .addField(`**By :**`, `**${message.author}**`)
-      .setFooter(`${message.author.tag}`, `${message.author.avatarURL}`)
-      .setTimestamp();
-    message.channel.sendEmbed(avatar);
-  }
-});
-client.on("message", message => {
-  let args = message.content
-    .split(" ")
-    .slice(1)
-    .join(" ");
-  if (message.content.startsWith(prefix + "setavatar")) {
+  if (message.content.startsWith(prefix + "settings setavatar")) {
     if (!change.includes(message.author.id))
       return message.reply("**:x: لا يحبيبي فقط لعمك وسام بس**");
     message.delete();
