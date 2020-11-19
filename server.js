@@ -309,10 +309,10 @@ let ac2 = ["online", "idle", "invisible", "dnd","default"];
      if (!ssss || !result) return message.channel.send('**:x: Error : Usage **' + prefix + '**settings setgame [type] [game]**');
      if (!ac.includes(ssss[1].toLowerCase())) return message.channel.send('**:x: Unknown type.**\n\n> **Available Type(s) :**\n> [ `Listening` | `Watching` | `Playing` | `Streaming` | `Default` ]**');
       await  db.set(client.user.id, ssss[1].toUpperCase(), "type");
-      await  db.set(client.user.id, result.replace("default",`Taxs Bot.`), "game");
+      await  db.set(client.user.id, result.replace("default",`Wessam Bot.`), "game");
       await  client.user.setActivity(db.get(client.user.id, "game"), {
       type: db.get(client.user.id, "type"),
-      url: "https://twitch.tv/zq1d"
+      url: "https://twitch.tv/"
     });
        message.channel.send(`**✅ Done , The bot game was changed into : ${result}**`);
        message.react('✅');
