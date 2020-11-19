@@ -267,18 +267,18 @@ let ac2 = ["online", "idle", "invisible", "dnd","default"];
       type: db.get(client.user.id, "type"),
       url: "https://twitch.tv/"
     });
-       message.channel.send(`**✅ Done , The bot game was changed into : ${result}**`);
+       message.channel.send(`**✅ Done , The bot status game was changed into : ${result}**`);
        message.react('✅');
     } else if (args[1] === 'setstatus') {
      if (!args[2]) return message.channel.send('**:x: Error : Usage **' + '**' + prefix + '**' + '**settings setstatus [status]**');
      if (!ac2.includes(args[2].toLowerCase())) return message.channel.send('**:x: Unknown Status.**\n\n> **Available Status(s) :**\n> [ `Online` | `Offline` | `Dnd` | `Idle` | `Default` ]**');
       await  db.set(client.user.id, args.slice(2).join(" ").replace("default",`online`), "status");
       await  client.user.setStatus(db.get(client.user.id, "status"));
-      message.channel.send(`**✅ Done , The bot game was changed into : ${args[2]}**`);
+      message.channel.send(`**✅ Done , The bot status color was changed into : ${args[2]}**`);
        message.react('✅');
     } else { 
-       message.channel.send(`> **:bulb: Usage**: ${prefix}settings [ \`setname\` - \`setavatar\` - \`setgame\` - \`setstatus\` ]`);
-       message.react('ℹ️');
+       message.channel.send(`> **:bulb: Usage**: ${prefix}settings [  \`setgame\` - \`setstatus\` ]`);
+       message.react('🎆');
     }
   }
 });
