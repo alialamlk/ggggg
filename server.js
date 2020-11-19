@@ -287,4 +287,47 @@ client.on("message", message => {
   }
 });
 
+const Enmap = require("enmap");
+
+const db = new Enmap({name: "Taxes"});
+
+
+client.on('message', async message => {
+ 
+  
+let ac = ["listening", "watching", "playing", "streaming","default"];
+let ac2 = ["online", "idle", "invisible", "dnd","default"];
+
+  if(!message.channel.guild || message.author.bot) return;
+ let args = message.content.split(" ");
+  if (args[0] === (prefix + 'settings')) {
+   if (!change.includes(message.author.id)) return;
+    else if (args[1] === 'setgame') {
+    var ssss = message.content.split(" ").slice(1);  
+    var result = ssss.slice(2).join(" ");
+
+     if (!ssss || !result) return message.channel.send('**:x: Error : Usage **' + prefix + '**settings setgame [type] [game]**');
+     if (!ac.includes(ssss[1].toLowerCase())) return message.channel.send('**:x: Unknown type.**\n\n> **Available Type(s) :**\n> [ `Listening` | `Watching` | `Playing` | `Streaming` | `Default` ]**');
+      await  db.set(client.user.id, ssss[1].toUpperCase(), "type");
+      await  db.set(client.user.id, result.replace("default",`Taxs Bot.`), "game");
+      await  client.user.setActivity(db.get(client.user.id, "game"), {
+      type: db.get(client.user.id, "type"),
+      url: "https://twitch.tv/zq1d"
+    });
+       message.channel.send(`**✅ Done , The bot game was changed into : ${result}**`);
+       message.react('✅');
+    } else if (args[1] === 'setstatus') {
+     if (!args[2]) return message.channel.send('**:x: Error : Usage **' + '**' + prefix + '**' + '**settings setstatus [status]**');
+     if (!ac2.includes(args[2].toLowerCase())) return message.channel.send('**:x: Unknown Status.**\n\n> **Available Status(s) :**\n> [ `Online` | `Offline` | `Dnd` | `Idle` | `Default` ]**');
+      await  db.set(client.user.id, args.slice(2).join(" ").replace("default",`online`), "status");
+      await  client.user.setStatus(db.get(client.user.id, "status"));
+      message.channel.send(`**✅ Done , The bot game was changed into : ${args[2]}**`);
+       message.react('✅');
+    } else { 
+       message.channel.send(`> **:bulb: Usage**: ${prefix}settings [ \`setname\` - \`setavatar\` - \`setgame\` - \`setstatus\` ]`);
+       message.react('ℹ️');
+    }
+  }
+});
+
 client.login(process.env.token);
