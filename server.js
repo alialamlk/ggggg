@@ -196,7 +196,7 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.content === prefix + "invite") {
     var SUPPORT =
-      "";
+      "https://discord.gg/47AcXf4xmu";
     let embed = new Discord.RichEmbed()
       .setTitle(`Invite Link`)
       .setDescription(
