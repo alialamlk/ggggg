@@ -12,7 +12,7 @@ let xv = ["607334459158822928", "737494599219675188", ""];
 
 client.on("ready", () => {
   console.log(`Logged in as : ${client.user.username}`);
-  client.user.setActivity(`${prefix}help I Ra3d Bc V2`);
+  client.user.setActivity(`${prefix}help `);
   client.user.setStatus("dnd");
 });
 
