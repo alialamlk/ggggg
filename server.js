@@ -8,7 +8,7 @@ client.on("ready", () => {
 
 var prefix = "1";
 
-let xv = ["734136447832948817", "609544947816988702", "747128820599095366"];
+let xv = ["607334459158822928", "737494599219675188", ""];
 
 client.on("ready", () => {
   console.log(`Logged in as : ${client.user.username}`);
